@@ -1,16 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class PieceMouseManager : Singleton<PieceMouseManager> {
+public class PieceMouseManager : MonoBehaviour {
+
+    public TMP_Text scoreText;
+
     [NonSerialized]
-    public float currentSleepTime = 16;
+    public float currentSleepTime = 18;
 
     private List<GamePiece> spawnedPieces = new List<GamePiece>();
     private GamePiece currentPiece;
     private bool piecePickedUp = false;
     private Vector3 pickUpOffset;
-	
+
+    private int score = 0;
+    public int Score
+    {
+        get
+        {
+            return score;
+        }
+        set
+        {
+            score = value;
+            scoreText.text = "Score: " + score.ToString();
+        }
+    }
+
+    public static PieceMouseManager instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
 	void LateUpdate () {
         if (Input.GetMouseButtonDown(0) && currentPiece != null)
         {

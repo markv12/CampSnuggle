@@ -150,6 +150,7 @@ MonoBehaviour:
   hitSprite: {fileID: 21300000, guid: 0125694e6d2f72e4ab0dedabaa31ce89, type: 3}
   restedSprite: {fileID: 21300000, guid: ea84d5bdf46a6a0408189e91e8891ced, type: 3}
   rigid: {fileID: 50078565750372896}
+  mainCollider: {fileID: 60772407626391486}
 --- !u!212 &212203467860614430
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -184,7 +185,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: aa03f5981242ff74ebea5c5541395e60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

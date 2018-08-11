@@ -9,6 +9,7 @@ public class GamePiece : MonoBehaviour {
     public Sprite hitSprite;
     public Sprite restedSprite;
     public Rigidbody2D rigid;
+    public PolygonCollider2D mainCollider;
 
     private float timeInWarmth = 0f;
     private float timeToSleep;
@@ -34,12 +35,12 @@ public class GamePiece : MonoBehaviour {
         }
     }
 
-    private void Awake()
+    private void Start()
     {
-        timeToSleep = PieceMouseManager.Instance.currentSleepTime + Random.Range(-5f, 5f);
-        PieceMouseManager.Instance.currentSleepTime += Random.Range(-1f, 3f);
+        timeToSleep = PieceMouseManager.instance.currentSleepTime + Random.Range(-5f, 5f);
+        PieceMouseManager.instance.currentSleepTime += Random.Range(-1f, 3f);
         t = transform;
-        PieceMouseManager.Instance.RegisterPiece(this);
+        PieceMouseManager.instance.RegisterPiece(this);
     }
 
     private Vector3 prevPos = Vector3.zero;
@@ -54,7 +55,8 @@ public class GamePiece : MonoBehaviour {
         {
             if (HeatManager.instance.WithinHeatRange(t.position))
             {
-                theRender.sprite = sleepingSprite;
+                if (getHitRoutine == null)
+                    theRender.sprite = sleepingSprite;
                 timeInWarmth += Time.deltaTime;
                 if (timeInWarmth >= timeToSleep)
                 {
@@ -63,48 +65,46 @@ public class GamePiece : MonoBehaviour {
             }
             else
             {
-                theRender.sprite = hitSprite;
+                if (getHitRoutine == null)
+                    theRender.sprite = hitSprite;
                 timeInWarmth = 0;
             }
         }
         else
         {
-            if (!HeatManager.instance.WithinHeatRange(t.position))
+            if (moveOutRoutine == null && !HeatManager.instance.WithinHeatRange(t.position))
             {
-                Destroy(gameObject);
+                PieceMouseManager.instance.Score += 1;
+                moveOutRoutine = StartCoroutine(MovePieceOut());
             }
         }
     }
 
     private void OnMouseEnter()
     {
-        PieceMouseManager.Instance.SetCurrentPiece(this);
+        PieceMouseManager.instance.SetCurrentPiece(this);
     }
 
     private void OnMouseExit()
     {
-        PieceMouseManager.Instance.SetCurrentPiece(null);
+        PieceMouseManager.instance.SetCurrentPiece(null);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!Rested)
         {
-            GamePiece thePiece = collision.gameObject.GetComponent<GamePiece>();
-            if (thePiece != null)
+            if (getHitRoutine == null)
             {
-                float otherVelocity = thePiece.currentVelocity.magnitude;
-                if (currentVelocity.magnitude > otherVelocity && getHitRoutine == null)
-                {
-                    getHitRoutine = StartCoroutine(GetHit());
-                }
+                timeInWarmth -= 1f;
+                getHitRoutine = StartCoroutine(GetHit());
             }
         }
     }
 
     private Coroutine getHitRoutine = null;
-    private static readonly WaitForSeconds hitWait = new WaitForSeconds(1.2f);
-    private static readonly WaitForSeconds invulnerableWait = new WaitForSeconds(0.8f);
+    private static readonly WaitForSeconds hitWait = new WaitForSeconds(0.5f);
+    private static readonly WaitForSeconds invulnerableWait = new WaitForSeconds(1f);
     private IEnumerator GetHit()
     {
         theRender.sprite = hitSprite;
@@ -114,9 +114,31 @@ public class GamePiece : MonoBehaviour {
         getHitRoutine = null;
     }
 
+    private Coroutine moveOutRoutine = null;
+    private static readonly WaitForSeconds moveWait = new WaitForSeconds(1f);
+    private const float MOVE_TIME = 2f;
+    private IEnumerator MovePieceOut() 
+    {
+        yield return moveWait;
+        mainCollider.enabled = false;
+        Vector3 startPos = t.position;
+        Vector3 endPos = startPos * 3;
+        float elapsedTime = 0;
+        float progress = 0;
+        while (progress <= 1)
+        {
+            elapsedTime += Time.deltaTime;
+            progress = elapsedTime / MOVE_TIME;
+            float easedProgress = Easing.easeInSine(0, 1, progress);
+            t.position = Vector3.Lerp(startPos, endPos, easedProgress);
+            yield return null;
+        }
+        Destroy(gameObject);
+    }
+
     private void OnDestroy()
     {
-        PieceMouseManager m = PieceMouseManager.Instance;
+        PieceMouseManager m = PieceMouseManager.instance;
         if(m != null)
         {
             m.UnregisterPiece(this);
