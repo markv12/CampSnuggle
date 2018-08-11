@@ -1,0 +1,1239 @@
+{
+   "Version" : 2,
+   "AlphaSpriteToOpaqueSpriteDictionary" : [
+      
+   ],
+   "SpriteMeshSettings" : [
+      {
+         "k" : {
+            "Guid" : "a5e9af18f91abe5489fb5f3b75b9411e",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/1200px-All_5_free_tetrominoes.svg.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : false,
+               "ProcessingMethod" : "Normal",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "a5e9af18f91abe5489fb5f3b75b9411e",
+            "LocalIdentifier" : 21300002,
+            "LastPath" : "Assets/1200px-All_5_free_tetrominoes.svg.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : false,
+               "ProcessingMethod" : "Normal",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "a5e9af18f91abe5489fb5f3b75b9411e",
+            "LocalIdentifier" : 21300004,
+            "LastPath" : "Assets/1200px-All_5_free_tetrominoes.svg.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "a5e9af18f91abe5489fb5f3b75b9411e",
+            "LocalIdentifier" : 21300006,
+            "LastPath" : "Assets/1200px-All_5_free_tetrominoes.svg.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "a5e9af18f91abe5489fb5f3b75b9411e",
+            "LocalIdentifier" : 21300008,
+            "LastPath" : "Assets/1200px-All_5_free_tetrominoes.svg.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "81a5827bc0c0efc4486856e483c9ee85",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/FIrstPass/block_3_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "8582bf8db2159b34aa8b218b874d7be3",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/FIrstPass/block_3_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "21e25991617c41241ba8201b3c17316d",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/FIrstPass/block_2_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "4c022c9e3c3b7924493db0af711e599b",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/FIrstPass/block_2_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "5f03c0667e3f2c44d89a15eab4408b1d",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/FIrstPass/block_1_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "e1e4da878f8b19a42bf3b53f100c7de7",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/FIrstPass/block_1_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "a584f8c484451fd48adf2b52a347dedb",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/wood.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "ea84d5bdf46a6a0408189e91e8891ced",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_5_wakeup.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "0125694e6d2f72e4ab0dedabaa31ce89",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_5_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "aa03f5981242ff74ebea5c5541395e60",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_5_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "c3b554b3b6917814a822939d40e87d9d",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_4_wakeup.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "d8c400fa31fcc5541b953d7403ecb664",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_4_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "b4d92479eccc2434a8aa65f4108cfc7e",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_4_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "27d9d9036829f0045b281de4c769ff57",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_3_wakeup.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "a9a723fbc33af434888a41e8a50a60d5",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_3_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "a8041df6028b7cb47abe9d41c8d6eff6",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_3_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "ecfc577cda0ab664989409dd0fdc1cd1",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_2_wakeup.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "7798b8c5830099c43b1e3568341673e7",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_2_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "0eeb4b6052e706e4cb0ac2c144afc85b",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_2_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "0d294b004b120244aa5f1c4b5e47d735",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_1_wakeup.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "06f6c432b945c3c48b6b1b5b06996a3c",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_1_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "e51ccf900ddc80b43ad12853d36b3f26",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Ossan/block_1_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      }
+   ],
+   "Preferences" : {
+      "IsDisabled" : false,
+      "SkipTextureSpriteExtrude" : false,
+      "WorkaroundSpriteAtlasRepacking" : true,
+      "ReimportChangedSpritesOnDatabaseMismatch" : true,
+      "DefaultSettings" : {
+         "PlatformSharedTightMeshSettings" : {
+            
+         },
+         "PerPlatformTightMeshSettings" : [
+            
+         ],
+         "DefaultTightMeshSettings" : {
+            "IsOverriding" : false,
+            "ProcessingMethod" : "Normal",
+            "SharedTightMeshSettings" : {
+               "Detail" : 0.3,
+               "AlphaTolerance" : 10,
+               "AlphaSourceChannel" : "Alpha"
+            },
+            "UnityMethodTightMeshSettings" : {
+               "VertexMergeDistance" : 3,
+               "DetectHoles" : true
+            },
+            "AlphaSeparationTightMeshSettings" : {
+               "OpaqueVertexMergeDistance" : 2,
+               "OpaqueNegativeExtrude" : 3,
+               "ReduceAlphaBleed" : false,
+               "OpaqueAlphaTolerance" : 254
+            },
+            "PreciseTightMeshSettings" : {
+               "EdgeInflation" : 2
+            },
+            "RectGridTightMeshSettings" : {
+               "XSubdivisions" : 5,
+               "YSubdivisions" : 5,
+               "CullByBoundingBox" : true,
+               "RemoveEmptyCells" : true,
+               "ScaleAroundCenter" : 0
+            }
+         }
+      }
+   }
+}
