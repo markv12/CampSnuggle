@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24f93d886aefa2249908af145468c768
+guid: c67df2fc307dc724083b0cfb42830494
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Joker Smiling
+  fontName: Open Sans
   fontNames:
-  - Joker Smiling
+  - Open Sans
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
