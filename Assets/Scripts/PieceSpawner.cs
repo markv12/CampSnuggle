@@ -20,11 +20,11 @@ public class PieceSpawner : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3f, 5f));
             GamePiece piece = allPieces[Random.Range(0, allPieces.Length)];
             GamePiece newPiece = Instantiate(piece);
             Vector3 spawnPos = RandomSpawnPosition();
             newPiece.GetComponent<GamePiece>().MovePieceIn(spawnPos * 2, spawnPos);
+            yield return new WaitForSeconds(Random.Range(3f, 5.5f));
         }
     }
 

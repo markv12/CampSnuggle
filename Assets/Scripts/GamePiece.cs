@@ -47,14 +47,8 @@ public class GamePiece : MonoBehaviour {
         PieceMouseManager.instance.RegisterPiece(this);
     }
 
-    private Vector3 prevPos = Vector3.zero;
-    private Vector3 currentVelocity = Vector3.zero;
     private void Update()
     {
-        Vector3 pos = t.position;
-        currentVelocity = (prevPos - pos) * Time.deltaTime;
-        prevPos = pos;
-
         if (!Rested)
         {
             if (HeatManager.instance.WithinHeatRange(t.position))
@@ -71,7 +65,14 @@ public class GamePiece : MonoBehaviour {
             {
                 if (getHitRoutine == null)
                     theRender.sprite = hitSprite;
-                timeInWarmth = 0;
+                if(moveInRoutine == null)
+                {
+                    Vector3 pos = t.position;
+                    if(Mathf.Abs(pos.x) > 18f || Mathf.Abs(pos.y) > 10f)
+                    {
+                        rigid.AddForce(-pos.normalized * 45);
+                    }
+                }
             }
         }
         else
@@ -118,14 +119,14 @@ public class GamePiece : MonoBehaviour {
         getHitRoutine = null;
     }
 
+    private Coroutine moveInRoutine = null;
     public void MovePieceIn(Vector3 startPos, Vector3 endPos)
     {
-        StartCoroutine(_MovePieceIn(startPos, endPos));
+        moveInRoutine = StartCoroutine(_MovePieceIn(startPos, endPos));
     }
 
     private IEnumerator _MovePieceIn(Vector3 startPos, Vector3 endPos)
     {
-        mainCollider.enabled = false;
         t.position = startPos;
         float elapsedTime = 0;
         float progress = 0;
@@ -138,7 +139,7 @@ public class GamePiece : MonoBehaviour {
             yield return null;
         }
         t.position = endPos;
-        mainCollider.enabled = true;
+        moveInRoutine = null;
     }
 
     private Coroutine moveOutRoutine = null;

@@ -28,51 +28,30 @@ public class TitleScreenManager : MonoBehaviour {
 
     private void StartGame()
     {
-        if (!heatManager.enabled)
+        if (!pieceSpawner.enabled)
         {
-            StartCoroutine(RemoveTitleScreen());
+            pieceSpawner.enabled = true;
+            LoadingScreen.instance.Show(_StartGame(), 0.666f);
         }
     }
 
-    public const float moveTime = 1f;
-    private IEnumerator RemoveTitleScreen()
+    private IEnumerator _StartGame()
     {
         //heatManager.enabled = true;
-        pieceSpawner.enabled = true;
-        pieceSpawner.StartSpawning();
-        float progress = 0;
-        float elapsedTime = 0;
-        while (progress <= 1)
-        {
-            elapsedTime += Time.deltaTime;
-            progress = elapsedTime / moveTime;
-            float easedProgress = Easing.easeInSine(0, 1, progress);
-            container.anchoredPosition = Vector2.Lerp(containerStartPosition, containerEndPosition, easedProgress);
-            yield return null;
-        }
-        container.anchoredPosition = containerEndPosition;
         container.gameObject.SetActive(false);
+        yield return null;
+        pieceSpawner.StartSpawning();
     }
 
     public void GoToTitleScreen(System.Action onComplete)
     {
-        StartCoroutine(_GoToTitleScreen(onComplete));
+        LoadingScreen.instance.Show(_GoToTitleScreen(onComplete), 0.666f);
     }
 
     private IEnumerator _GoToTitleScreen(System.Action onComplete)
     {
         container.gameObject.SetActive(true);
-        float progress = 0;
-        float elapsedTime = 0;
-        while (progress <= 1)
-        {
-            elapsedTime += Time.deltaTime;
-            progress = elapsedTime / moveTime;
-            float easedProgress = Easing.easeInSine(1, 0, progress);
-            container.anchoredPosition = Vector2.Lerp(containerStartPosition, containerEndPosition, easedProgress);
-            yield return null;
-        }
-        container.anchoredPosition = containerStartPosition;
+        yield return null;
         onComplete();
     }
 }
