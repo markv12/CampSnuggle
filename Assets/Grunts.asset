@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660776b08db53cb4e95813a370e42e5f, type: 3}
+  m_Name: Grunts
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 550470dbffb9cce49b2e05b8041efc6c, type: 3}
+  - {fileID: 8300000, guid: 8a840433bcbf19e44bc47a41d8af8e8f, type: 3}
+  - {fileID: 8300000, guid: fd31936ce31ecff4b88ac9f393dad3bd, type: 3}
+  - {fileID: 8300000, guid: b4b6756aa690ef243b3da5a08f066772, type: 3}
+  - {fileID: 8300000, guid: 7e225e57617f4b0438ad718c6a8d667c, type: 3}
+  - {fileID: 8300000, guid: 1cad5cc2e4c924d42bc9c90a3ab45ca2, type: 3}
+  - {fileID: 8300000, guid: 2309c7b3cac3e1e47b20777dc5dc3a41, type: 3}
+  - {fileID: 8300000, guid: 9f0626061e2c039498076dbd7564ad98, type: 3}
+  - {fileID: 8300000, guid: de4ebad9996b4a24b8a9f27498b9c502, type: 3}
+  - {fileID: 8300000, guid: bdc9f7983bb4db840abe2a75dfbc2138, type: 3}

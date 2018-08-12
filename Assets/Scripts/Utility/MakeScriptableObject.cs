@@ -8,9 +8,9 @@ public class MakeScriptableObject
     [MenuItem("Assets/Create/It")]
     public static void CreateMyAsset()
     {
-        PieceSet asset = ScriptableObject.CreateInstance<PieceSet>();
+        AudioList asset = ScriptableObject.CreateInstance<AudioList>();
 
-        AssetDatabase.CreateAsset(asset, "Assets/PieceSet.asset");
+        AssetDatabase.CreateAsset(asset, "Assets/Grunts.asset");
         AssetDatabase.SaveAssets();
 
         EditorUtility.FocusProjectWindow();

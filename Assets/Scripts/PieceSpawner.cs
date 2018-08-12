@@ -13,21 +13,35 @@ public class PieceSpawner : MonoBehaviour {
 
     public void StartSpawning()
     {
-        StartCoroutine(SpawnPieces());
+        spawnRoutine = StartCoroutine(SpawnPieces());
     }
 
+    private Coroutine spawnRoutine;
     private IEnumerator SpawnPieces()
     {
         while (true)
         {
+            yield return new WaitForSeconds(Random.Range(3f, 5.5f));
             GamePiece piece = allPieces[Random.Range(0, allPieces.Length)];
             GamePiece newPiece = Instantiate(piece);
             Vector3 spawnPos = RandomSpawnPosition();
             newPiece.GetComponent<GamePiece>().MovePieceIn(spawnPos * 2, spawnPos);
-            yield return new WaitForSeconds(Random.Range(3f, 5.5f));
         }
     }
 
+    public void StopSpawning()
+    {
+        if (spawnRoutine != null)
+        {
+            StopCoroutine(spawnRoutine);
+            spawnRoutine = null;
+        }
+    }
+
+    public bool IsSpawning()
+    {
+        return spawnRoutine != null;
+    }
 
     private int currentIndex = 0;
     private int[] spawnOrder = new int[] { 0, 1, 2, 3, 4, 5 };

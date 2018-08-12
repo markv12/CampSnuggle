@@ -1,38 +1,36 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EndScreenManager : MonoBehaviour
 {
+    public TitleScreenManager titleScreen;
 
-    public HeatManager heatManager;
-    public PieceSpawner pieceSpawner;
+    public TMP_Text scoreText;
 
-    public Button startButton;
+    public Button retryButton;
     public RectTransform container;
-    private static readonly Vector2 containerStartPosition = Vector2.zero;
-    private static readonly Vector2 containerEndPosition = new Vector2(0, -720);
 
     void Start()
     {
-        startButton.onClick.AddListener(delegate { EndGame(); });
+        retryButton.onClick.AddListener(delegate { Retry(); });
     }
 
-    private void EndGame()
+    public void ShowScore(int score)
     {
-        if (!pieceSpawner.enabled)
-        {
-            pieceSpawner.enabled = true;
-            LoadingScreen.instance.Show(_EndGame(), 0.666f);
-        }
+        scoreText.text = "Score: " + score.ToString();
     }
 
-    private IEnumerator _EndGame()
+    private void Retry()
     {
-        //heatManager.enabled = true;
+        LoadingScreen.instance.Show(_Retry(), 0.666f);
+    }
+
+    private IEnumerator _Retry()
+    {
         container.gameObject.SetActive(false);
+        titleScreen.container.gameObject.SetActive(true);
         yield return null;
-        pieceSpawner.StartSpawning();
     }
 }

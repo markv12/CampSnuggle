@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class PieceMouseManager : MonoBehaviour {
 
+    private const float START_SLEEP_TIME = 18;
     [NonSerialized]
-    public float currentSleepTime = 18;
+    public float currentSleepTime = START_SLEEP_TIME;
 
-    private List<GamePiece> spawnedPieces = new List<GamePiece>();
+    public EndScreenManager endScreen;
+    public PieceSpawner spawner;
+
+    private List<GamePiece> coldPeople = new List<GamePiece>();
+
     private GamePiece currentPiece;
     private bool piecePickedUp = false;
     private Vector3 pickUpOffset;
@@ -49,14 +55,43 @@ public class PieceMouseManager : MonoBehaviour {
         return v3;
     }
 
-    public void RegisterPiece(GamePiece piece)
+    private const int COLD_PERSON_LIMIT = 8;
+    public void RegisterColdPerson(GamePiece piece)
     {
-        spawnedPieces.Add(piece);
+        if (!coldPeople.Contains(piece))
+        {
+            coldPeople.Add(piece);
+        }
+        if(coldPeople.Count >= COLD_PERSON_LIMIT)
+        {
+            EndGame();
+            coldPeople.Clear();
+        }
     }
 
-    public void UnregisterPiece(GamePiece piece)
+    private void EndGame()
     {
-        spawnedPieces.Remove(piece);
+        LoadingScreen.instance.Show(_EndGame(), 0.666f);
+    }
+
+    private IEnumerator _EndGame()
+    {
+        spawner.StopSpawning();
+        GamePiece[] remainingPeople = FindObjectsOfType(typeof(GamePiece)) as GamePiece[];
+        for (int i = 0; i < remainingPeople.Length; i++)
+        {
+            Destroy(remainingPeople[i].gameObject);
+        }
+        endScreen.ShowScore(HudManager.instance.Score);
+        HudManager.instance.Score = 0;
+        currentSleepTime = START_SLEEP_TIME;
+        endScreen.container.gameObject.SetActive(true);
+        yield return null;
+    }
+
+    public void UnregisterColdPerson(GamePiece piece)
+    {
+        coldPeople.Remove(piece);
     }
 
     public void SetCurrentPiece(GamePiece piece)

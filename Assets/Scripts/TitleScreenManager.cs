@@ -10,13 +10,14 @@ public class TitleScreenManager : MonoBehaviour {
 
     public Button startButton;
     public RectTransform container;
-    private static readonly Vector2 containerStartPosition = Vector2.zero;
-    private static readonly Vector2 containerEndPosition = new Vector2(0, -720);
+
+    public AudioSource titleAudio;
 
     void Start () {
         heatManager.enabled = false;
         pieceSpawner.enabled = false;
         startButton.onClick.AddListener(delegate { StartGame(); });
+        StartCoroutine(FadeAudioSourceVolume(titleAudio, 0.8f, 2f));
     }
 
     void Update () {
@@ -28,19 +29,18 @@ public class TitleScreenManager : MonoBehaviour {
 
     private void StartGame()
     {
-        if (!pieceSpawner.enabled)
+        if (!pieceSpawner.IsSpawning())
         {
-            pieceSpawner.enabled = true;
+            pieceSpawner.StartSpawning();
             LoadingScreen.instance.Show(_StartGame(), 0.666f);
+            StartCoroutine(FadeAudioSourceVolume(titleAudio, 0f, 2f));
         }
     }
 
     private IEnumerator _StartGame()
     {
-        //heatManager.enabled = true;
         container.gameObject.SetActive(false);
         yield return null;
-        pieceSpawner.StartSpawning();
     }
 
     public void GoToTitleScreen(System.Action onComplete)
@@ -53,5 +53,29 @@ public class TitleScreenManager : MonoBehaviour {
         container.gameObject.SetActive(true);
         yield return null;
         onComplete();
+    }
+
+    public static IEnumerator FadeAudioSourceVolume(AudioSource source, float endVolume, float fadeTime)
+    {
+        float startVolume = source.volume;
+        if(startVolume == 0 && endVolume != 0)
+        {
+            source.Play();
+        }
+        float elapsedTime = 0;
+        float progress = 0;
+        while (progress <= 1)
+        {
+            elapsedTime += Time.deltaTime;
+            progress = elapsedTime / fadeTime;
+            float easedProgress = Easing.easeInOutSine(0, 1, progress);
+            source.volume = Mathf.Lerp(startVolume, endVolume, easedProgress);
+            yield return null;
+        }
+        source.volume = endVolume;
+        if(endVolume == 0)
+        {
+            source.Stop();
+        }
     }
 }

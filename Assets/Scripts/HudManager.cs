@@ -20,6 +20,10 @@ public class HudManager : MonoBehaviour {
         }
         set
         {
+            if (value > currentCombo)
+            {
+                StartCoroutine(FlashText(comboText));
+            }
             currentCombo = value;
             comboText.text = (currentCombo <= 1) ? "" : ("Combo: " + currentCombo.ToString() + "x");
         }
@@ -37,7 +41,7 @@ public class HudManager : MonoBehaviour {
     }
 
     private int score = 0;
-    private int Score
+    public int Score
     {
         get
         {
@@ -45,9 +49,12 @@ public class HudManager : MonoBehaviour {
         }
         set
         {
+            if (value > score)
+            {
+                StartCoroutine(FlashText(scoreText));
+            }
             score = value;
             scoreText.text = "Score: " + score.ToString();
-
         }
     }
 
@@ -58,9 +65,9 @@ public class HudManager : MonoBehaviour {
         comboText.text = "";
 	}
 
-    private const float COMBO_TIME = 3f;
+    private const float COMBO_TIME = 3.333f;
     private static readonly Vector2 comboTimerSmallSize = new Vector2(0, 8);
-    private static readonly Vector2 comboTimerLargeSize = new Vector2(240, 8);
+    private static readonly Vector2 comboTimerLargeSize = new Vector2(255, 8);
     private Coroutine comboRoutine = null;
     private IEnumerator Combo()
     {
@@ -78,5 +85,30 @@ public class HudManager : MonoBehaviour {
         CurrentCombo = 1;
         comboRoutine = null;
         comboText.text = "";
+    }
+
+    private static readonly Color popColor = Color.green;
+    private static readonly Color normalColor = Color.white;
+    private const float POP_TIME = 0.333f;
+    private IEnumerator FlashText(TMP_Text text)
+    {
+        text.color = normalColor;
+        yield return null;
+        text.color = (normalColor + popColor) / 2f;
+        yield return null;
+        text.color = popColor;
+        yield return null;
+
+        float elapsedTime = 0;
+        float progress = 0;
+        while (progress <= 1)
+        {
+            progress = elapsedTime / POP_TIME;
+            elapsedTime += Time.deltaTime;
+            Color currentColor = Color.Lerp(popColor, normalColor, progress);
+            text.color = currentColor;
+            yield return null;
+        }
+        text.color = normalColor;
     }
 }

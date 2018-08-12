@@ -10,6 +10,8 @@ public class GamePiece : MonoBehaviour {
     public Sprite restedSprite;
     public Rigidbody2D rigid;
     public PolygonCollider2D mainCollider;
+    public AudioSource theSource;
+    public AudioList gruntClips;
 
     private float timeInWarmth = 0f;
     private float timeToSleep;
@@ -35,6 +37,31 @@ public class GamePiece : MonoBehaviour {
         }
     }
 
+    private bool withinFire = true;
+    private bool WithinFire
+    {
+        get
+        {
+            return withinFire;
+        }
+        set
+        {
+            withinFire = value;
+            if (getHitRoutine == null)
+            {
+                theRender.sprite = withinFire ? sleepingSprite : hitSprite;
+            }
+            if (withinFire)
+            {
+                PieceMouseManager.instance.UnregisterColdPerson(this);
+            }
+            else
+            {
+                PieceMouseManager.instance.RegisterColdPerson(this);
+            }
+        }
+    }
+
     private void Awake()
     {
         t = transform;
@@ -44,7 +71,6 @@ public class GamePiece : MonoBehaviour {
     {
         timeToSleep = PieceMouseManager.instance.currentSleepTime + Random.Range(-5f, 5f);
         PieceMouseManager.instance.currentSleepTime += Random.Range(-1f, 2f);
-        PieceMouseManager.instance.RegisterPiece(this);
     }
 
     private void Update()
@@ -53,8 +79,10 @@ public class GamePiece : MonoBehaviour {
         {
             if (HeatManager.instance.WithinHeatRange(t.position))
             {
-                if (getHitRoutine == null)
-                    theRender.sprite = sleepingSprite;
+                if (!WithinFire)
+                {
+                    WithinFire = true;
+                }
                 timeInWarmth += Time.deltaTime;
                 if (timeInWarmth >= timeToSleep)
                 {
@@ -63,14 +91,16 @@ public class GamePiece : MonoBehaviour {
             }
             else
             {
-                if (getHitRoutine == null)
-                    theRender.sprite = hitSprite;
+                if (WithinFire)
+                {
+                    WithinFire = false;
+                }
                 if(moveInRoutine == null)
                 {
                     Vector3 pos = t.position;
                     if(Mathf.Abs(pos.x) > 18f || Mathf.Abs(pos.y) > 10f)
                     {
-                        rigid.AddForce(-pos.normalized * 45);
+                        rigid.AddForce(-pos.normalized * 50);
                     }
                 }
             }
@@ -108,13 +138,14 @@ public class GamePiece : MonoBehaviour {
     }
 
     private Coroutine getHitRoutine = null;
-    private static readonly WaitForSeconds hitWait = new WaitForSeconds(0.5f);
+    private static readonly WaitForSeconds hitWait = new WaitForSeconds(0.4f);
     private static readonly WaitForSeconds invulnerableWait = new WaitForSeconds(1f);
     private IEnumerator GetHit()
     {
+        theSource.PlayOneShot(gruntClips.clips[Random.Range(0, gruntClips.clips.Length)]);
         theRender.sprite = hitSprite;
         yield return hitWait;
-        theRender.sprite = sleepingSprite;
+        theRender.sprite = WithinFire ? sleepingSprite : hitSprite;
         yield return invulnerableWait;
         getHitRoutine = null;
     }
@@ -162,14 +193,5 @@ public class GamePiece : MonoBehaviour {
             yield return null;
         }
         Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        PieceMouseManager m = PieceMouseManager.instance;
-        if(m != null)
-        {
-            m.UnregisterPiece(this);
-        }
     }
 }
