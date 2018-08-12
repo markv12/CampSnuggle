@@ -64,7 +64,6 @@ public class GamePiece : MonoBehaviour {
                     StopCoroutine(getHitRoutine);
                     getHitRoutine = null;
                 }
-                sleepCountdown.color = Color.white;
                 theRender.sprite = restedSprite;
             }
         }
@@ -196,16 +195,16 @@ public class GamePiece : MonoBehaviour {
     }
 
     private Coroutine getHitRoutine = null;
-    private static readonly WaitForSeconds hitWait = new WaitForSeconds(0.4f);
+    private const float HIT_RED_TIME = 0.4f;
+    private static readonly WaitForSeconds hitWait = new WaitForSeconds(HIT_RED_TIME);
     private static readonly WaitForSeconds invulnerableWait = new WaitForSeconds(1f);
     private IEnumerator GetHit()
     {
+        StartCoroutine(FlashCountdownColor(sleepCountdown));
         theSource.PlayOneShot(GetNextGruntClip());
         theRender.sprite = hitSprite;
-        sleepCountdown.color = Color.red;
         yield return hitWait;
         theRender.sprite = WithinFire ? sleepingSprite : hitSprite;
-        sleepCountdown.color = Color.white;
         yield return invulnerableWait;
         getHitRoutine = null;
     }
@@ -253,5 +252,29 @@ public class GamePiece : MonoBehaviour {
             yield return null;
         }
         Destroy(gameObject);
+    }
+
+    private static readonly Color popColor = Color.red;
+    private static readonly Color normalColor = Color.white;
+    private IEnumerator FlashCountdownColor(Image countdown)
+    {
+        countdown.color = normalColor;
+        yield return null;
+        countdown.color = (normalColor + popColor) / 2f;
+        yield return null;
+        countdown.color = popColor;
+        yield return null;
+
+        float elapsedTime = 0;
+        float progress = 0;
+        while (progress <= 1)
+        {
+            progress = elapsedTime / HIT_RED_TIME;
+            elapsedTime += Time.deltaTime;
+            Color currentColor = Color.Lerp(popColor, normalColor, progress);
+            countdown.color = currentColor;
+            yield return null;
+        }
+        countdown.color = normalColor;
     }
 }
