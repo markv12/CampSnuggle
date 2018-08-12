@@ -87,10 +87,22 @@ public class GamePiece : MonoBehaviour {
             if (withinFire)
             {
                 PieceMouseManager.instance.UnregisterColdPerson(this);
+                if (countdownFlashRoutine != null)
+                {
+                    StopCoroutine(countdownFlashRoutine);
+                    countdownFlashRoutine = null;
+                }
+                sleepCountdown.color = Color.white;
             }
             else
             {
                 PieceMouseManager.instance.RegisterColdPerson(this);
+                if(countdownFlashRoutine != null)
+                {
+                    StopCoroutine(countdownFlashRoutine);
+                    countdownFlashRoutine = null;
+                }
+                sleepCountdown.color = new Color(0.3f, 1f, 1f);
             }
         }
     }
@@ -126,7 +138,7 @@ public class GamePiece : MonoBehaviour {
     private void Start()
     {
         timeToSleep = PieceMouseManager.instance.currentSleepTime + Random.Range(-5f, 5f);
-        PieceMouseManager.instance.currentSleepTime += Random.Range(-1f, 2f);
+        PieceMouseManager.instance.currentSleepTime += Random.Range(-1f, 2.5f);
     }
 
     private void Update()
@@ -184,7 +196,7 @@ public class GamePiece : MonoBehaviour {
     }
 
     private const float LOWER_HIT_LIMIT = 5.5f;
-    private const float UPPER_HIT_LIMIT = 50f;
+    private const float UPPER_HIT_LIMIT = 40f;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!Rested)
@@ -198,7 +210,7 @@ public class GamePiece : MonoBehaviour {
                 {
                     hitSpeed = Mathf.Min(UPPER_HIT_LIMIT, hitSpeed);
                     float hitStrength = Mathf.InverseLerp(LOWER_HIT_LIMIT, UPPER_HIT_LIMIT, hitSpeed);
-                    float timePenalty = Mathf.Lerp(1f, 7f, hitStrength);
+                    float timePenalty = Mathf.Lerp(3f, 8f, hitStrength);
                     timeInWarmth = Mathf.Max(0, timeInWarmth - timePenalty);
                     getHitRoutine = StartCoroutine(GetHit());
                 }
@@ -212,7 +224,7 @@ public class GamePiece : MonoBehaviour {
     private static readonly WaitForSeconds invulnerableWait = new WaitForSeconds(1f);
     private IEnumerator GetHit()
     {
-        StartCoroutine(FlashCountdownColor(sleepCountdown));
+        countdownFlashRoutine = StartCoroutine(FlashCountdownColor(sleepCountdown));
         theSource.PlayOneShot(GetNextGruntClip());
         theRender.sprite = hitSprite;
         yield return hitWait;
@@ -268,6 +280,7 @@ public class GamePiece : MonoBehaviour {
 
     private static readonly Color popColor = Color.red;
     private static readonly Color normalColor = Color.white;
+    private Coroutine countdownFlashRoutine = null;
     private IEnumerator FlashCountdownColor(Image countdown)
     {
         countdown.color = normalColor;
@@ -288,5 +301,6 @@ public class GamePiece : MonoBehaviour {
             yield return null;
         }
         countdown.color = normalColor;
+        countdownFlashRoutine = null;
     }
 }

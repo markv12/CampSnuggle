@@ -29,7 +29,12 @@ public class PieceSpawner : MonoBehaviour {
             GamePiece piece = allPieces[Random.Range(0, allPieces.Length)];
             GamePiece newPiece = Instantiate(piece);
             Vector3 spawnPos = RandomSpawnPosition();
-            newPiece.GetComponent<GamePiece>().MovePieceIn(spawnPos * 2, spawnPos);
+            newPiece.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+            if (Random.Range(0f, 1f) >= 0.5f) {
+                Vector3 currentScale = newPiece.transform.localScale;
+                newPiece.transform.localScale = new Vector3(-currentScale.x, currentScale.y, currentScale.z);
+            }
+            newPiece.MovePieceIn(spawnPos * 2, spawnPos);
             yield return new WaitForSeconds(Random.Range(3f, 5f));
         }
     }

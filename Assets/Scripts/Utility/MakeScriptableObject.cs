@@ -10,7 +10,7 @@ public class MakeScriptableObject
     {
         AudioList asset = ScriptableObject.CreateInstance<AudioList>();
 
-        AssetDatabase.CreateAsset(asset, "Assets/Grunts.asset");
+        AssetDatabase.CreateAsset(asset, "Assets/AudioList.asset");
         AssetDatabase.SaveAssets();
 
         EditorUtility.FocusProjectWindow();
