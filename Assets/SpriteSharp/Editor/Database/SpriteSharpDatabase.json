@@ -492,7 +492,7 @@
          "k" : {
             "Guid" : "a584f8c484451fd48adf2b52a347dedb",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/wood.png"
+            "LastPath" : "Assets/Art/wood.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -536,7 +536,7 @@
          "k" : {
             "Guid" : "ea84d5bdf46a6a0408189e91e8891ced",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_5_wakeup.png"
+            "LastPath" : "Assets/Art/block_5_wakeup.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -580,7 +580,7 @@
          "k" : {
             "Guid" : "0125694e6d2f72e4ab0dedabaa31ce89",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_5_w.png"
+            "LastPath" : "Assets/Art/block_5_w.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -624,7 +624,7 @@
          "k" : {
             "Guid" : "aa03f5981242ff74ebea5c5541395e60",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_5_s.png"
+            "LastPath" : "Assets/Art/block_5_s.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -668,7 +668,7 @@
          "k" : {
             "Guid" : "c3b554b3b6917814a822939d40e87d9d",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_4_wakeup.png"
+            "LastPath" : "Assets/Art/block_4_wakeup.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -712,7 +712,7 @@
          "k" : {
             "Guid" : "d8c400fa31fcc5541b953d7403ecb664",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_4_s.png"
+            "LastPath" : "Assets/Art/block_4_s.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -756,7 +756,7 @@
          "k" : {
             "Guid" : "b4d92479eccc2434a8aa65f4108cfc7e",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_4_w.png"
+            "LastPath" : "Assets/Art/block_4_w.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -800,7 +800,7 @@
          "k" : {
             "Guid" : "27d9d9036829f0045b281de4c769ff57",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_3_wakeup.png"
+            "LastPath" : "Assets/Art/block_3_wakeup.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -844,7 +844,7 @@
          "k" : {
             "Guid" : "a9a723fbc33af434888a41e8a50a60d5",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_3_w.png"
+            "LastPath" : "Assets/Art/block_3_w.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -888,7 +888,7 @@
          "k" : {
             "Guid" : "a8041df6028b7cb47abe9d41c8d6eff6",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_3_s.png"
+            "LastPath" : "Assets/Art/block_3_s.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -932,7 +932,7 @@
          "k" : {
             "Guid" : "ecfc577cda0ab664989409dd0fdc1cd1",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_2_wakeup.png"
+            "LastPath" : "Assets/Art/block_2_wakeup.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -976,7 +976,7 @@
          "k" : {
             "Guid" : "7798b8c5830099c43b1e3568341673e7",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_2_w.png"
+            "LastPath" : "Assets/Art/block_2_w.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -1020,7 +1020,7 @@
          "k" : {
             "Guid" : "0eeb4b6052e706e4cb0ac2c144afc85b",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_2_s.png"
+            "LastPath" : "Assets/Art/block_2_s.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -1064,7 +1064,7 @@
          "k" : {
             "Guid" : "0d294b004b120244aa5f1c4b5e47d735",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_1_wakeup.png"
+            "LastPath" : "Assets/Art/block_1_wakeup.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -1108,7 +1108,7 @@
          "k" : {
             "Guid" : "06f6c432b945c3c48b6b1b5b06996a3c",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_1_w.png"
+            "LastPath" : "Assets/Art/block_1_w.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {
@@ -1152,7 +1152,7 @@
          "k" : {
             "Guid" : "e51ccf900ddc80b43ad12853d36b3f26",
             "LocalIdentifier" : 21300000,
-            "LastPath" : "Assets/Ossan/block_1_s.png"
+            "LastPath" : "Assets/Art/block_1_s.png"
          },
          "v" : {
             "PlatformSharedTightMeshSettings" : {

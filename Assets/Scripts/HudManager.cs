@@ -65,7 +65,7 @@ public class HudManager : MonoBehaviour {
         comboText.text = "";
 	}
 
-    private const float COMBO_TIME = 3.333f;
+    private const float COMBO_TIME = 4f;
     private static readonly Vector2 comboTimerSmallSize = new Vector2(0, 8);
     private static readonly Vector2 comboTimerLargeSize = new Vector2(255, 8);
     private Coroutine comboRoutine = null;

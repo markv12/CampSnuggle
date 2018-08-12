@@ -17,7 +17,7 @@ public class TitleScreenManager : MonoBehaviour {
         heatManager.enabled = false;
         pieceSpawner.enabled = false;
         startButton.onClick.AddListener(delegate { StartGame(); });
-        StartCoroutine(FadeAudioSourceVolume(titleAudio, 0.8f, 2f));
+        musicFadeRoutine = StartCoroutine(FadeAudioSourceVolume(titleAudio, 0.8f, 2f));
     }
 
     void Update () {
@@ -33,7 +33,12 @@ public class TitleScreenManager : MonoBehaviour {
         {
             pieceSpawner.StartSpawning();
             LoadingScreen.instance.Show(_StartGame(), 0.666f);
-            StartCoroutine(FadeAudioSourceVolume(titleAudio, 0f, 2f));
+            if(musicFadeRoutine != null)
+            {
+                StopCoroutine(musicFadeRoutine);
+                musicFadeRoutine = null;
+            }
+            musicFadeRoutine = StartCoroutine(FadeAudioSourceVolume(titleAudio, 0f, 2f));
         }
     }
 
@@ -55,6 +60,7 @@ public class TitleScreenManager : MonoBehaviour {
         onComplete();
     }
 
+    private Coroutine musicFadeRoutine = null;
     public static IEnumerator FadeAudioSourceVolume(AudioSource source, float endVolume, float fadeTime)
     {
         float startVolume = source.volume;

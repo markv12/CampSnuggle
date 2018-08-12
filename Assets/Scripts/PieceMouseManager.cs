@@ -6,7 +6,7 @@ using System.Collections;
 
 public class PieceMouseManager : MonoBehaviour {
 
-    private const float START_SLEEP_TIME = 18;
+    private const float START_SLEEP_TIME = 25;
     [NonSerialized]
     public float currentSleepTime = START_SLEEP_TIME;
 
@@ -55,7 +55,7 @@ public class PieceMouseManager : MonoBehaviour {
         return v3;
     }
 
-    private const int COLD_PERSON_LIMIT = 8;
+    private const int COLD_PERSON_LIMIT = 10;
     public void RegisterColdPerson(GamePiece piece)
     {
         if (!coldPeople.Contains(piece))

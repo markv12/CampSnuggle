@@ -1,20 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePiece : MonoBehaviour {
     private Transform t;
+    public Transform center;
     public SpriteRenderer theRender;
     public Sprite sleepingSprite;
     public Sprite hitSprite;
     public Sprite restedSprite;
+    public Image sleepCountdown;
     public Rigidbody2D rigid;
     public PolygonCollider2D mainCollider;
     public AudioSource theSource;
-    public AudioList gruntClips;
 
     private float timeInWarmth = 0f;
     private float timeToSleep;
+
+    private static AudioClip[] gruntClips = null;
+    private static int currentGruntIndex = 0;
+    private static int[] gruntIndices;
+    private static AudioClip GetNextGruntClip()
+    {
+        int index = gruntIndices[currentGruntIndex];
+        currentGruntIndex++;
+        if(currentGruntIndex >= gruntIndices.Length)
+        {
+            currentGruntIndex = 0;
+            PieceSpawner.SortInPlaceRandom(gruntIndices);
+        }
+        return gruntClips[index];
+    }
+
+    private static AudioClip[] scoreClips = null;
+    private static int currentScoreIndex = 0;
+    private static int[] scoreIndices;
+    private static AudioClip GetNextScoreClip()
+    {
+        int index = scoreIndices[currentScoreIndex];
+        currentScoreIndex++;
+        if (currentScoreIndex >= scoreIndices.Length)
+        {
+            currentScoreIndex = 0;
+            PieceSpawner.SortInPlaceRandom(scoreIndices);
+        }
+        return scoreClips[index];
+    }
 
     private bool rested = false;
     private bool Rested {
@@ -64,7 +96,30 @@ public class GamePiece : MonoBehaviour {
 
     private void Awake()
     {
+        if(gruntClips == null)
+        {
+            AudioList theList = (Resources.Load("Grunts") as AudioList);
+            gruntClips = theList.clips;
+            gruntIndices = new int[gruntClips.Length];
+            for (int i = 0; i < gruntIndices.Length; i++)
+            {
+                gruntIndices[i] = i;
+            }
+            PieceSpawner.SortInPlaceRandom(gruntIndices);
+        }
+        if (scoreClips == null)
+        {
+            AudioList theList = (Resources.Load("ScoreSounds") as AudioList);
+            scoreClips = theList.clips;
+            scoreIndices = new int[scoreClips.Length];
+            for (int i = 0; i < scoreIndices.Length; i++)
+            {
+                scoreIndices[i] = i;
+            }
+            PieceSpawner.SortInPlaceRandom(scoreIndices);
+        }
         t = transform;
+        sleepCountdown.fillAmount = 0;
     }
 
     private void Start()
@@ -77,13 +132,14 @@ public class GamePiece : MonoBehaviour {
     {
         if (!Rested)
         {
-            if (HeatManager.instance.WithinHeatRange(t.position))
+            if (HeatManager.instance.WithinHeatRange(center.position))
             {
                 if (!WithinFire)
                 {
                     WithinFire = true;
                 }
                 timeInWarmth += Time.deltaTime;
+                sleepCountdown.fillAmount = 1f-(timeInWarmth / timeToSleep);
                 if (timeInWarmth >= timeToSleep)
                 {
                     Rested = true;
@@ -97,7 +153,7 @@ public class GamePiece : MonoBehaviour {
                 }
                 if(moveInRoutine == null)
                 {
-                    Vector3 pos = t.position;
+                    Vector3 pos = center.position;
                     if(Mathf.Abs(pos.x) > 18f || Mathf.Abs(pos.y) > 10f)
                     {
                         rigid.AddForce(-pos.normalized * 50);
@@ -107,9 +163,10 @@ public class GamePiece : MonoBehaviour {
         }
         else
         {
-            if (moveOutRoutine == null && !HeatManager.instance.WithinHeatRange(t.position))
+            if (moveOutRoutine == null && !HeatManager.instance.WithinHeatRange(center.position))
             {
                 HudManager.instance.MarkScore();
+                theSource.PlayOneShot(GetNextScoreClip());
                 moveOutRoutine = StartCoroutine(MovePieceOut());
             }
         }
@@ -129,9 +186,9 @@ public class GamePiece : MonoBehaviour {
     {
         if (!Rested)
         {
-            if (getHitRoutine == null && HeatManager.instance.WithinHeatRange(t.position))
+            if (getHitRoutine == null && HeatManager.instance.WithinHeatRange(center.position))
             {
-                timeInWarmth -= 1f;
+                timeInWarmth = Mathf.Max(0, timeInWarmth - 3f);
                 getHitRoutine = StartCoroutine(GetHit());
             }
         }
@@ -142,7 +199,7 @@ public class GamePiece : MonoBehaviour {
     private static readonly WaitForSeconds invulnerableWait = new WaitForSeconds(1f);
     private IEnumerator GetHit()
     {
-        theSource.PlayOneShot(gruntClips.clips[Random.Range(0, gruntClips.clips.Length)]);
+        theSource.PlayOneShot(GetNextGruntClip());
         theRender.sprite = hitSprite;
         yield return hitWait;
         theRender.sprite = WithinFire ? sleepingSprite : hitSprite;
