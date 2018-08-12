@@ -10,6 +10,7 @@ public class GamePiece : MonoBehaviour {
     public Sprite sleepingSprite;
     public Sprite hitSprite;
     public Sprite restedSprite;
+    public Sprite coldSprite;
     public Image sleepCountdown;
     public Rigidbody2D rigid;
     public PolygonCollider2D mainCollider;
@@ -81,7 +82,7 @@ public class GamePiece : MonoBehaviour {
             withinFire = value;
             if (getHitRoutine == null)
             {
-                theRender.sprite = withinFire ? sleepingSprite : hitSprite;
+                theRender.sprite = withinFire ? sleepingSprite : coldSprite;
             }
             if (withinFire)
             {
