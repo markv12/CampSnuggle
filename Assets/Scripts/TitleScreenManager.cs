@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TitleScreenManager : MonoBehaviour {
 
-    public HeatManager heatManager;
     public PieceSpawner pieceSpawner;
 
     public Button startButton;
@@ -14,7 +13,7 @@ public class TitleScreenManager : MonoBehaviour {
     public AudioSource titleAudio;
 
     void Start () {
-        heatManager.enabled = false;
+        HeatManager.instance.enabled = false;
         pieceSpawner.enabled = false;
         startButton.onClick.AddListener(delegate { StartGame(); });
         musicFadeRoutine = StartCoroutine(FadeAudioSourceVolume(titleAudio, 0.8f, 2f));

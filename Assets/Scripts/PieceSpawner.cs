@@ -15,6 +15,7 @@ public class PieceSpawner : MonoBehaviour {
 
     public void StartSpawning()
     {
+        HeatManager.instance.enabled = true;
         spawnRoutine = StartCoroutine(SpawnPieces());
     }
 
@@ -41,6 +42,7 @@ public class PieceSpawner : MonoBehaviour {
 
     public void StopSpawning()
     {
+        HeatManager.instance.enabled = false;
         if (spawnRoutine != null)
         {
             StopCoroutine(spawnRoutine);
