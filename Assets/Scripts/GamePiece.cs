@@ -38,7 +38,7 @@ public class GamePiece : MonoBehaviour {
     private void Start()
     {
         timeToSleep = PieceMouseManager.instance.currentSleepTime + Random.Range(-5f, 5f);
-        PieceMouseManager.instance.currentSleepTime += Random.Range(-1f, 3f);
+        PieceMouseManager.instance.currentSleepTime += Random.Range(-1f, 2f);
         t = transform;
         PieceMouseManager.instance.RegisterPiece(this);
     }
@@ -74,7 +74,7 @@ public class GamePiece : MonoBehaviour {
         {
             if (moveOutRoutine == null && !HeatManager.instance.WithinHeatRange(t.position))
             {
-                PieceMouseManager.instance.Score += 1;
+                HudManager.instance.MarkScore();
                 moveOutRoutine = StartCoroutine(MovePieceOut());
             }
         }
@@ -94,7 +94,7 @@ public class GamePiece : MonoBehaviour {
     {
         if (!Rested)
         {
-            if (getHitRoutine == null)
+            if (getHitRoutine == null && HeatManager.instance.WithinHeatRange(t.position))
             {
                 timeInWarmth -= 1f;
                 getHitRoutine = StartCoroutine(GetHit());
