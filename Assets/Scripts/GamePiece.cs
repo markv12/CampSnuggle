@@ -183,14 +183,25 @@ public class GamePiece : MonoBehaviour {
         PieceMouseManager.instance.SetCurrentPiece(null);
     }
 
+    private const float LOWER_HIT_LIMIT = 5.5f;
+    private const float UPPER_HIT_LIMIT = 50f;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!Rested)
         {
             if (getHitRoutine == null && HeatManager.instance.WithinHeatRange(center.position))
             {
-                timeInWarmth = Mathf.Max(0, timeInWarmth - 1.8f);
-                getHitRoutine = StartCoroutine(GetHit());
+                Vector2 vel1 = (collision.rigidbody == null) ? Vector2.zero : collision.rigidbody.velocity;
+                Vector2 vel2 = (collision.otherRigidbody == null) ? Vector2.zero : collision.otherRigidbody.velocity;
+                float hitSpeed = (vel1 + vel2).magnitude;
+                if (hitSpeed > LOWER_HIT_LIMIT)
+                {
+                    hitSpeed = Mathf.Min(UPPER_HIT_LIMIT, hitSpeed);
+                    float hitStrength = Mathf.InverseLerp(LOWER_HIT_LIMIT, UPPER_HIT_LIMIT, hitSpeed);
+                    float timePenalty = Mathf.Lerp(1f, 7f, hitStrength);
+                    timeInWarmth = Mathf.Max(0, timeInWarmth - timePenalty);
+                    getHitRoutine = StartCoroutine(GetHit());
+                }
             }
         }
     }
@@ -205,7 +216,7 @@ public class GamePiece : MonoBehaviour {
         theSource.PlayOneShot(GetNextGruntClip());
         theRender.sprite = hitSprite;
         yield return hitWait;
-        theRender.sprite = WithinFire ? sleepingSprite : hitSprite;
+        theRender.sprite = WithinFire ? sleepingSprite : coldSprite;
         yield return invulnerableWait;
         getHitRoutine = null;
     }
