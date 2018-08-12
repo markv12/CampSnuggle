@@ -8,6 +8,7 @@ public class PieceSpawner : MonoBehaviour {
     void Awake()
     {
         allPieces = set.pieces;
+        SortInPlaceRandom(spawnOrder);
     }
 
     public void StartSpawning()
@@ -23,29 +24,34 @@ public class PieceSpawner : MonoBehaviour {
             GamePiece piece = allPieces[Random.Range(0, allPieces.Length)];
             GamePiece newPiece = Instantiate(piece);
             Vector3 spawnPos = RandomSpawnPosition();
-            StartCoroutine(MovePieceIn(newPiece.transform, spawnPos * 2, spawnPos));
+            newPiece.GetComponent<GamePiece>().MovePieceIn(spawnPos * 2, spawnPos);
         }
     }
 
+
+    private int currentIndex = 0;
+    private int[] spawnOrder = new int[] { 0, 1, 2, 3, 4, 5 };
     private Vector3 RandomSpawnPosition()
     {
-        return spawnLocations[Random.Range(0, spawnLocations.Length)].position;
+        int loc = spawnOrder[currentIndex];
+        currentIndex++;
+        if(currentIndex >= spawnOrder.Length)
+        {
+            currentIndex = 0;
+            SortInPlaceRandom(spawnOrder);
+        }
+
+        return spawnLocations[loc].position;
     }
 
-    private const float MOVE_TIME = 2f;
-    private IEnumerator MovePieceIn(Transform t, Vector3 startPos, Vector3 endPos)
+    private void SortInPlaceRandom(int[] theArray)
     {
-        t.position = startPos;
-        float elapsedTime = 0;
-        float progress = 0;
-        while(progress <= 1)
+        for (int t = 0; t < theArray.Length; t++)
         {
-            elapsedTime += Time.deltaTime;
-            progress = elapsedTime / MOVE_TIME;
-            float easedProgress = Easing.easeOutSine(0, 1, progress);
-            t.position = Vector3.Lerp(startPos, endPos, easedProgress);
-            yield return null;
+            int tmp = theArray[t];
+            int r = Random.Range(t, theArray.Length);
+            theArray[t] = theArray[r];
+            theArray[r] = tmp;
         }
-        t.position = endPos;
     }
 }

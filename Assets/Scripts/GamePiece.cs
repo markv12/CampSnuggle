@@ -35,11 +35,15 @@ public class GamePiece : MonoBehaviour {
         }
     }
 
+    private void Awake()
+    {
+        t = transform;
+    }
+
     private void Start()
     {
         timeToSleep = PieceMouseManager.instance.currentSleepTime + Random.Range(-5f, 5f);
         PieceMouseManager.instance.currentSleepTime += Random.Range(-1f, 2f);
-        t = transform;
         PieceMouseManager.instance.RegisterPiece(this);
     }
 
@@ -114,13 +118,36 @@ public class GamePiece : MonoBehaviour {
         getHitRoutine = null;
     }
 
+    public void MovePieceIn(Vector3 startPos, Vector3 endPos)
+    {
+        StartCoroutine(_MovePieceIn(startPos, endPos));
+    }
+
+    private IEnumerator _MovePieceIn(Vector3 startPos, Vector3 endPos)
+    {
+        mainCollider.enabled = false;
+        t.position = startPos;
+        float elapsedTime = 0;
+        float progress = 0;
+        while (progress <= 1)
+        {
+            elapsedTime += Time.deltaTime;
+            progress = elapsedTime / MOVE_TIME;
+            float easedProgress = Easing.easeOutSine(0, 1, progress);
+            t.position = Vector3.Lerp(startPos, endPos, easedProgress);
+            yield return null;
+        }
+        t.position = endPos;
+        mainCollider.enabled = true;
+    }
+
     private Coroutine moveOutRoutine = null;
     private static readonly WaitForSeconds moveWait = new WaitForSeconds(1f);
     private const float MOVE_TIME = 2f;
     private IEnumerator MovePieceOut() 
     {
-        yield return moveWait;
         mainCollider.enabled = false;
+        yield return moveWait;
         Vector3 startPos = t.position;
         Vector3 endPos = startPos * 3;
         float elapsedTime = 0;
