@@ -143,8 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd62133ecc419ec4fb2eed6a62973c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainGameAudio: {fileID: 72277630}
-  titleScreenAudio: {fileID: 870310257}
   titleScreen: {fileID: 870310252}
   scoreText: {fileID: 444659199}
   retryButton: {fileID: 230579700}
@@ -295,6 +293,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endScreen: {fileID: 38412582}
   spawner: {fileID: 72277627}
+  mainGameAudio: {fileID: 72277630}
+  titleScreenAudio: {fileID: 870310257}
 --- !u!82 &72277630
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2806,7 +2806,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: 61cf6c4a274237f41baaf6734a9b7950, type: 3}
-  m_Color: {r: 0.5718672, g: 0.6385697, b: 0.6698113, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

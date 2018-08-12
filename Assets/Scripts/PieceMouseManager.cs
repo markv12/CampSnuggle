@@ -13,6 +13,9 @@ public class PieceMouseManager : MonoBehaviour {
     public EndScreenManager endScreen;
     public PieceSpawner spawner;
 
+    public AudioSource mainGameAudio;
+    public AudioSource titleScreenAudio;
+
     private List<GamePiece> coldPeople = new List<GamePiece>();
 
     private GamePiece currentPiece;
@@ -83,6 +86,9 @@ public class PieceMouseManager : MonoBehaviour {
             Destroy(remainingPeople[i].gameObject);
         }
         endScreen.ShowScore(HudManager.instance.Score);
+        StartCoroutine(TitleScreenManager.FadeAudioSourceVolume(mainGameAudio, 0f, 2f));
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(TitleScreenManager.FadeAudioSourceVolume(titleScreenAudio, 0.8f, 2f));
         HudManager.instance.Score = 0;
         currentSleepTime = START_SLEEP_TIME;
         endScreen.container.gameObject.SetActive(true);

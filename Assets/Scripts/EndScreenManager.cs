@@ -5,9 +5,6 @@ using TMPro;
 
 public class EndScreenManager : MonoBehaviour
 {
-    public AudioSource mainGameAudio;
-    public AudioSource titleScreenAudio;
-
     public TitleScreenManager titleScreen;
 
     public TMP_Text scoreText;
@@ -34,9 +31,6 @@ public class EndScreenManager : MonoBehaviour
     {
         container.gameObject.SetActive(false);
         titleScreen.container.gameObject.SetActive(true);
-        StartCoroutine(TitleScreenManager.FadeAudioSourceVolume(mainGameAudio, 0f, 2f));
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(TitleScreenManager.FadeAudioSourceVolume(titleScreenAudio, 0.8f, 2f));
 
         yield return null;
     }

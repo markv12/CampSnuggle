@@ -64,6 +64,7 @@ public class GamePiece : MonoBehaviour {
                     StopCoroutine(getHitRoutine);
                     getHitRoutine = null;
                 }
+                sleepCountdown.color = Color.white;
                 theRender.sprite = restedSprite;
             }
         }
@@ -188,7 +189,7 @@ public class GamePiece : MonoBehaviour {
         {
             if (getHitRoutine == null && HeatManager.instance.WithinHeatRange(center.position))
             {
-                timeInWarmth = Mathf.Max(0, timeInWarmth - 3f);
+                timeInWarmth = Mathf.Max(0, timeInWarmth - 1.8f);
                 getHitRoutine = StartCoroutine(GetHit());
             }
         }
@@ -201,8 +202,10 @@ public class GamePiece : MonoBehaviour {
     {
         theSource.PlayOneShot(GetNextGruntClip());
         theRender.sprite = hitSprite;
+        sleepCountdown.color = Color.red;
         yield return hitWait;
         theRender.sprite = WithinFire ? sleepingSprite : hitSprite;
+        sleepCountdown.color = Color.white;
         yield return invulnerableWait;
         getHitRoutine = null;
     }
