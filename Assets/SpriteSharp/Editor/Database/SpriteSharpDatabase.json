@@ -1323,6 +1323,182 @@
                }
             }
          }
+      },
+      {
+         "k" : {
+            "Guid" : "b2008fe85697d7640b6296f10afde10a",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Art/block_6_c.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "1afa7ebc3ea60b24294804f1a37fa2b3",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Art/block_6_s.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "9cdeee1a1996f884bb289f08b16ded09",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Art/block_6_w.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
+      },
+      {
+         "k" : {
+            "Guid" : "08a1b4bb6e972d64ab5d655b7531e057",
+            "LocalIdentifier" : 21300000,
+            "LastPath" : "Assets/Art/block_6_wakeup.png"
+         },
+         "v" : {
+            "PlatformSharedTightMeshSettings" : {
+               
+            },
+            "PerPlatformTightMeshSettings" : [
+               
+            ],
+            "DefaultTightMeshSettings" : {
+               "IsOverriding" : true,
+               "ProcessingMethod" : "Precise",
+               "SharedTightMeshSettings" : {
+                  "Detail" : 0.3,
+                  "AlphaTolerance" : 10,
+                  "AlphaSourceChannel" : "Alpha"
+               },
+               "UnityMethodTightMeshSettings" : {
+                  "VertexMergeDistance" : 3,
+                  "DetectHoles" : true
+               },
+               "AlphaSeparationTightMeshSettings" : {
+                  "OpaqueVertexMergeDistance" : 2,
+                  "OpaqueNegativeExtrude" : 3,
+                  "ReduceAlphaBleed" : false,
+                  "OpaqueAlphaTolerance" : 254
+               },
+               "PreciseTightMeshSettings" : {
+                  "EdgeInflation" : 2
+               },
+               "RectGridTightMeshSettings" : {
+                  "XSubdivisions" : 5,
+                  "YSubdivisions" : 5,
+                  "CullByBoundingBox" : true,
+                  "RemoveEmptyCells" : true,
+                  "ScaleAroundCenter" : 0
+               }
+            }
+         }
       }
    ],
    "Preferences" : {

@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PieceMouseManager : MonoBehaviour {
 
-    private const float START_SLEEP_TIME = 28;
+    private const float START_SLEEP_TIME = 32;
     [NonSerialized]
     public float currentSleepTime = START_SLEEP_TIME;
 
