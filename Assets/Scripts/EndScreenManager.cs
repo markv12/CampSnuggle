@@ -49,25 +49,25 @@ public class EndScreenManager : MonoBehaviour
     {
         string rank;
         string next;
-        if (score < 200)
+        if (score < 300)
         {
             rank = "Bumbling Intern";
-            next = "Next Level at: 200";
+            next = "Next Level at: 300";
         }
-        else if (score < 500)
+        else if (score < 600)
         {
             rank = "Trainee Soother";
-            next = "Next Level at: 500";
-        }
-        else if (score < 800)
-        {
-            rank = "Associate Ossan Bed Keeper";
-            next = "Next Level at: 800";
+            next = "Next Level at: 600";
         }
         else if (score < 1000)
         {
-            rank = "Professional Nuzzle Attendant";
+            rank = "Associate Ossan Bed Keeper";
             next = "Next Level at: 1000";
+        }
+        else if (score < 1200)
+        {
+            rank = "Professional Nuzzle Attendant";
+            next = "Next Level at: 1200";
         }
         else
         {
