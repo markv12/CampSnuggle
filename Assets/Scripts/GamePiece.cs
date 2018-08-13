@@ -221,7 +221,7 @@ public class GamePiece : MonoBehaviour {
     private Coroutine getHitRoutine = null;
     private const float HIT_RED_TIME = 0.4f;
     private static readonly WaitForSeconds hitWait = new WaitForSeconds(HIT_RED_TIME);
-    private static readonly WaitForSeconds invulnerableWait = new WaitForSeconds(1f);
+    private static readonly WaitForSeconds invulnerableWait = new WaitForSeconds(0.5f);
     private IEnumerator GetHit()
     {
         countdownFlashRoutine = StartCoroutine(FlashCountdownColor(sleepCountdown));
@@ -230,6 +230,7 @@ public class GamePiece : MonoBehaviour {
         yield return hitWait;
         theRender.sprite = WithinFire ? sleepingSprite : coldSprite;
         yield return invulnerableWait;
+        theRender.sprite = WithinFire ? sleepingSprite : coldSprite;
         getHitRoutine = null;
     }
 
