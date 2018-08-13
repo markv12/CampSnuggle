@@ -98,7 +98,7 @@ public class Ossan : DragablePiece {
                     StopCoroutine(countdownFlashRoutine);
                     countdownFlashRoutine = null;
                 }
-                sleepCountdown.color = new Color(0.3f, 1f, 1f);
+                sleepCountdown.color = HudManager.COLD_COLOR;
             }
         }
     }

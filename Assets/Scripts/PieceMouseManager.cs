@@ -63,8 +63,9 @@ public class PieceMouseManager : MonoBehaviour {
         if (!coldPeople.Contains(ossan))
         {
             coldPeople.Add(ossan);
+            HudManager.instance.SetColdOssanLevel(coldPeople.Count, COLD_PERSON_LIMIT);
         }
-        if(coldPeople.Count >= COLD_PERSON_LIMIT)
+        if (coldPeople.Count >= COLD_PERSON_LIMIT)
         {
             EndGame();
             coldPeople.Clear();
@@ -97,6 +98,7 @@ public class PieceMouseManager : MonoBehaviour {
     public void UnregisterColdPerson(Ossan ossan)
     {
         coldPeople.Remove(ossan);
+        HudManager.instance.SetColdOssanLevel(coldPeople.Count, COLD_PERSON_LIMIT);
     }
 
     public void SetCurrentPiece(DragablePiece piece)

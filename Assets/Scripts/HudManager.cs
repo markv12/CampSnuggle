@@ -7,6 +7,7 @@ public class HudManager : MonoBehaviour {
 
     public TMP_Text scoreText;
     public TMP_Text comboText;
+    public TMP_Text coldOssanText;
     public RectTransform comboTimer;
 
     public static HudManager instance;
@@ -22,7 +23,7 @@ public class HudManager : MonoBehaviour {
         {
             if (value > currentCombo)
             {
-                StartCoroutine(FlashText(comboText));
+                StartCoroutine(FlashText(comboText, Color.white, Color.green));
             }
             currentCombo = value;
             comboText.text = (currentCombo <= 1) ? "" : ("Combo: " + currentCombo.ToString() + "x");
@@ -51,14 +52,25 @@ public class HudManager : MonoBehaviour {
         {
             if (value > score)
             {
-                StartCoroutine(FlashText(scoreText));
+                StartCoroutine(FlashText(scoreText, Color.white, Color.green));
             }
             score = value;
             scoreText.text = "Score: " + score.ToString();
         }
     }
 
-    // Use this for initialization
+    public static readonly Color COLD_COLOR = new Color(0.4f, 1f, 1f);
+    private int prevOssanCount = 0;
+    public void SetColdOssanLevel(int coldOssanCount, int coldOssanLimit)
+    {
+        coldOssanText.text = "Cold Ossan: " + coldOssanCount + "/" + coldOssanLimit;
+        if (coldOssanCount > prevOssanCount)
+        {
+            StartCoroutine(FlashText(coldOssanText, Color.white, COLD_COLOR));
+        }
+        prevOssanCount = coldOssanCount;
+    }
+
     void Awake () {
         instance = this;
         comboTimer.sizeDelta = comboTimerSmallSize;
@@ -87,16 +99,14 @@ public class HudManager : MonoBehaviour {
         comboText.text = "";
     }
 
-    private static readonly Color popColor = Color.green;
-    private static readonly Color normalColor = Color.white;
     private const float POP_TIME = 0.333f;
-    private IEnumerator FlashText(TMP_Text text)
+    private IEnumerator FlashText(TMP_Text text, Color normalColor, Color flashColor)
     {
         text.color = normalColor;
         yield return null;
-        text.color = (normalColor + popColor) / 2f;
+        text.color = (normalColor + flashColor) / 2f;
         yield return null;
-        text.color = popColor;
+        text.color = flashColor;
         yield return null;
 
         float elapsedTime = 0;
@@ -105,7 +115,7 @@ public class HudManager : MonoBehaviour {
         {
             progress = elapsedTime / POP_TIME;
             elapsedTime += Time.deltaTime;
-            Color currentColor = Color.Lerp(popColor, normalColor, progress);
+            Color currentColor = Color.Lerp(flashColor, normalColor, progress);
             text.color = currentColor;
             yield return null;
         }
