@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
 public class PieceSet : ScriptableObject {
-    public GamePiece[] pieces;
+    public Ossan[] ossan;
+    public Wood wood;
 }

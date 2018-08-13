@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GamePiece : DragablePiece {
+public class Ossan : DragablePiece {
     public SpriteRenderer theRender;
     public Sprite sleepingSprite;
     public Sprite hitSprite;
@@ -103,8 +103,9 @@ public class GamePiece : DragablePiece {
         }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if(gruntClips == null)
         {
             AudioList theList = (Resources.Load("Grunts") as AudioList);
@@ -127,7 +128,6 @@ public class GamePiece : DragablePiece {
             }
             PieceSpawner.SortInPlaceRandom(scoreIndices);
         }
-        t = transform;
         sleepCountdown.fillAmount = 0;
     }
 
@@ -137,6 +137,8 @@ public class GamePiece : DragablePiece {
         PieceMouseManager.instance.currentSleepTime += Random.Range(-1f, 2.5f);
     }
 
+    private float timeSinceLastShiver = 0;
+    private const float SHIVER_INTERVAL = 4;
     private void Update()
     {
         if (!Rested)
@@ -167,6 +169,12 @@ public class GamePiece : DragablePiece {
                     {
                         rigid.AddForce(-pos.normalized * 50);
                     }
+                }
+                timeSinceLastShiver += Time.deltaTime;
+                if(timeSinceLastShiver >= SHIVER_INTERVAL)
+                {
+                    timeSinceLastShiver = 0;
+                    StartCoroutine(Shiver());
                 }
             }
         }
@@ -220,51 +228,6 @@ public class GamePiece : DragablePiece {
         getHitRoutine = null;
     }
 
-    private Coroutine moveInRoutine = null;
-    public void MovePieceIn(Vector3 startPos, Vector3 endPos)
-    {
-        moveInRoutine = StartCoroutine(_MovePieceIn(startPos, endPos));
-    }
-
-    private IEnumerator _MovePieceIn(Vector3 startPos, Vector3 endPos)
-    {
-        t.position = startPos;
-        float elapsedTime = 0;
-        float progress = 0;
-        while (progress <= 1)
-        {
-            elapsedTime += Time.deltaTime;
-            progress = elapsedTime / MOVE_TIME;
-            float easedProgress = Easing.easeOutSine(0, 1, progress);
-            t.position = Vector3.Lerp(startPos, endPos, easedProgress);
-            yield return null;
-        }
-        t.position = endPos;
-        moveInRoutine = null;
-    }
-
-    private Coroutine moveOutRoutine = null;
-    private static readonly WaitForSeconds moveWait = new WaitForSeconds(1f);
-    private const float MOVE_TIME = 2f;
-    private IEnumerator MovePieceOut() 
-    {
-        mainCollider.enabled = false;
-        yield return moveWait;
-        Vector3 startPos = t.position;
-        Vector3 endPos = startPos * 3;
-        float elapsedTime = 0;
-        float progress = 0;
-        while (progress <= 1)
-        {
-            elapsedTime += Time.deltaTime;
-            progress = elapsedTime / MOVE_TIME;
-            float easedProgress = Easing.easeInSine(0, 1, progress);
-            t.position = Vector3.Lerp(startPos, endPos, easedProgress);
-            yield return null;
-        }
-        Destroy(gameObject);
-    }
-
     private static readonly Color popColor = Color.red;
     private static readonly Color normalColor = Color.white;
     private Coroutine countdownFlashRoutine = null;
@@ -289,5 +252,23 @@ public class GamePiece : DragablePiece {
         }
         countdown.color = normalColor;
         countdownFlashRoutine = null;
+    }
+
+    private static readonly WaitForSeconds shiverWait = new WaitForSeconds(0.06f);
+    private IEnumerator Shiver()
+    {
+        float magnitude = 4f;
+        t.Rotate(0, 0, -magnitude);
+        yield return shiverWait;
+        t.Rotate(0, 0, magnitude);
+        yield return shiverWait;
+        t.Rotate(0, 0, -magnitude);
+        yield return shiverWait;
+        t.Rotate(0, 0, magnitude);
+        yield return shiverWait;
+        t.Rotate(0, 0, -magnitude);
+        yield return shiverWait;
+        t.Rotate(0, 0, magnitude);
+        yield return shiverWait;
     }
 }

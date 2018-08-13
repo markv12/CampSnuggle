@@ -6,10 +6,13 @@ public class PieceSpawner : MonoBehaviour {
     public Transform[] spawnLocations;
     public AudioSource mainGameAudio;
 
-    private GamePiece[] allPieces;
+    private Ossan[] allOssan;
+    private Wood theWood;
+
     void Awake()
     {
-        allPieces = set.pieces;
+        allOssan = set.ossan;
+        theWood = set.wood;
         SortInPlaceRandom(spawnOrder);
     }
 
@@ -19,6 +22,7 @@ public class PieceSpawner : MonoBehaviour {
         spawnRoutine = StartCoroutine(SpawnPieces());
     }
 
+    private int ossanSinceLastWood = 2;
     private Coroutine spawnRoutine;
     private static readonly WaitForSeconds startWait = new WaitForSeconds(1f);
     private IEnumerator SpawnPieces()
@@ -27,17 +31,29 @@ public class PieceSpawner : MonoBehaviour {
         StartCoroutine(TitleScreenManager.FadeAudioSourceVolume(mainGameAudio, 0.8f, 2f));
         while (true)
         {
-            GamePiece piece = allPieces[Random.Range(0, allPieces.Length)];
-            GamePiece newPiece = Instantiate(piece);
-            Vector3 spawnPos = RandomSpawnPosition();
-            newPiece.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
-            if (Random.Range(0f, 1f) >= 0.5f) {
-                Vector3 currentScale = newPiece.transform.localScale;
-                newPiece.transform.localScale = new Vector3(-currentScale.x, currentScale.y, currentScale.z);
+            Ossan ossan = allOssan[Random.Range(0, allOssan.Length)];
+            SpawnPiece(ossan);
+            ossanSinceLastWood++;
+            if (ossanSinceLastWood >= 4)
+            {
+                SpawnPiece(theWood);
+                ossanSinceLastWood = 0;
             }
-            newPiece.MovePieceIn(spawnPos * 2, spawnPos);
             yield return new WaitForSeconds(Random.Range(3f, 5f));
         }
+    }
+
+    private void SpawnPiece(DragablePiece piece)
+    {
+        DragablePiece newPiece = Instantiate(piece);
+        Vector3 spawnPos = RandomSpawnPosition();
+        newPiece.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+        if (Random.Range(0f, 1f) >= 0.5f)
+        {
+            Vector3 currentScale = newPiece.transform.localScale;
+            newPiece.transform.localScale = new Vector3(-currentScale.x, currentScale.y, currentScale.z);
+        }
+        newPiece.MovePieceIn(spawnPos * 2, spawnPos);
     }
 
     public void StopSpawning()

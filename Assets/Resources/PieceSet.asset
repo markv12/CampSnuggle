@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a15b82d68b2e24a92fa4c3b848bcad, type: 3}
   m_Name: PieceSet
   m_EditorClassIdentifier: 
-  pieces:
+  ossan:
   - {fileID: 114300236665198682, guid: d18da6f2630757d4fb6184cad4fad3ec, type: 2}
   - {fileID: 114568423949502808, guid: 2bee58b29987ae24e85c476ad8449686, type: 2}
   - {fileID: 114551066741107396, guid: 5146d9ddc15672447b9e7aad36fe1859, type: 2}
   - {fileID: 114155046509211284, guid: d84c143aa365f334a870101b202ce408, type: 2}
+  wood: {fileID: 114666405436124320, guid: d16260c8eb9f1d84ab94915763d031d6, type: 2}

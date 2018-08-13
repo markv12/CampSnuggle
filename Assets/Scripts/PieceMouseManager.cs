@@ -15,7 +15,7 @@ public class PieceMouseManager : MonoBehaviour {
     public AudioSource mainGameAudio;
     public AudioSource titleScreenAudio;
 
-    private List<GamePiece> coldPeople = new List<GamePiece>();
+    private List<Ossan> coldPeople = new List<Ossan>();
 
     private DragablePiece currentPiece;
     private bool piecePickedUp = false;
@@ -58,11 +58,11 @@ public class PieceMouseManager : MonoBehaviour {
     }
 
     private const int COLD_PERSON_LIMIT = 10;
-    public void RegisterColdPerson(GamePiece piece)
+    public void RegisterColdPerson(Ossan ossan)
     {
-        if (!coldPeople.Contains(piece))
+        if (!coldPeople.Contains(ossan))
         {
-            coldPeople.Add(piece);
+            coldPeople.Add(ossan);
         }
         if(coldPeople.Count >= COLD_PERSON_LIMIT)
         {
@@ -79,10 +79,10 @@ public class PieceMouseManager : MonoBehaviour {
     private IEnumerator _EndGame()
     {
         spawner.StopSpawning();
-        GamePiece[] remainingPeople = FindObjectsOfType(typeof(GamePiece)) as GamePiece[];
-        for (int i = 0; i < remainingPeople.Length; i++)
+        DragablePiece[] remainingDraggablePieces = FindObjectsOfType(typeof(DragablePiece)) as DragablePiece[];
+        for (int i = 0; i < remainingDraggablePieces.Length; i++)
         {
-            Destroy(remainingPeople[i].gameObject);
+            Destroy(remainingDraggablePieces[i].gameObject);
         }
         endScreen.RecordScore(HudManager.instance.Score);
         StartCoroutine(TitleScreenManager.FadeAudioSourceVolume(mainGameAudio, 0f, 2f));
@@ -94,9 +94,9 @@ public class PieceMouseManager : MonoBehaviour {
         yield return null;
     }
 
-    public void UnregisterColdPerson(GamePiece piece)
+    public void UnregisterColdPerson(Ossan ossan)
     {
-        coldPeople.Remove(piece);
+        coldPeople.Remove(ossan);
     }
 
     public void SetCurrentPiece(DragablePiece piece)

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HeatManager : MonoBehaviour {
 
-    public Button logButton;
     public Transform heatborder;
     private float currentHeat;
 
@@ -14,7 +13,6 @@ public class HeatManager : MonoBehaviour {
     private void Awake()
     {
         instance = this;
-        logButton.onClick.AddListener(delegate { AddLog(); });
     }
 
     void Update () {
@@ -22,9 +20,9 @@ public class HeatManager : MonoBehaviour {
         heatborder.localScale = new Vector3(currentHeat, currentHeat, currentHeat);
 	}
 
-    private void AddLog()
+    public void AddLog()
     {
-        currentHeat = Mathf.Min(MAX_FIRE, currentHeat + 0.30f);
+        currentHeat = Mathf.Min(MAX_FIRE, currentHeat + 1f);
     }
 
     public bool WithinHeatRange(Vector3 pos)
