@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HeatManager : MonoBehaviour {
 
     public Transform heatborder;
+    public Transform flames;
     private float currentHeat;
 
     public static HeatManager instance;
@@ -18,7 +19,12 @@ public class HeatManager : MonoBehaviour {
     void Update () {
         currentHeat -= (0.032f * Time.deltaTime);
         heatborder.localScale = new Vector3(currentHeat, currentHeat, currentHeat);
-	}
+        float fractionOfMaxFire = currentHeat / MAX_FIRE;
+        float easedFraction = Easing.easeInCubic(0, 1, fractionOfMaxFire);
+        flames.localScale = new Vector3(easedFraction, easedFraction, easedFraction);
+        float y = Mathf.Lerp(0.2f, 1.05f, easedFraction);
+        flames.localPosition = new Vector3(0, y, 0);
+    }
 
     public void AddLog()
     {

@@ -83,7 +83,7 @@ public class HudManager : MonoBehaviour {
     private Coroutine comboRoutine = null;
     private IEnumerator Combo()
     {
-        CurrentCombo += 0.5f;
+        CurrentCombo += 1f;
         float elapsedTime = 0;
         float progress = 0;
         while (progress <= 1)

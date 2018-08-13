@@ -10,6 +10,7 @@ public class Ossan : DragablePiece {
     public Sprite restedSprite;
     public Sprite coldSprite;
     public Image sleepCountdown;
+    public Image heart;
     public AudioSource theSource;
 
     private float timeInWarmth = 0f;
@@ -62,6 +63,7 @@ public class Ossan : DragablePiece {
                     getHitRoutine = null;
                 }
                 theRender.sprite = restedSprite;
+                heart.enabled = true;
             }
         }
     }
@@ -106,7 +108,8 @@ public class Ossan : DragablePiece {
     protected override void Awake()
     {
         base.Awake();
-        if(gruntClips == null)
+        heart.enabled = false;
+        if (gruntClips == null)
         {
             AudioList theList = (Resources.Load("Grunts") as AudioList);
             gruntClips = theList.clips;
@@ -186,6 +189,8 @@ public class Ossan : DragablePiece {
                 theSource.PlayOneShot(GetNextScoreClip());
                 moveOutRoutine = StartCoroutine(MovePieceOut());
             }
+            float heartSize = 0.8f + (Mathf.Sin(Time.time*6.666f) * 0.18f);
+            heart.rectTransform.sizeDelta = new Vector2(heartSize, heartSize);
         }
     }
 
