@@ -286,14 +286,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 224365630038321712}
+  rigid: {fileID: 50720825772419498}
+  mainCollider: {fileID: 60667855206617240}
   theRender: {fileID: 212346446803327588}
   sleepingSprite: {fileID: 21300000, guid: 0eeb4b6052e706e4cb0ac2c144afc85b, type: 3}
   hitSprite: {fileID: 21300000, guid: 7798b8c5830099c43b1e3568341673e7, type: 3}
   restedSprite: {fileID: 21300000, guid: ecfc577cda0ab664989409dd0fdc1cd1, type: 3}
   coldSprite: {fileID: 21300000, guid: 7798b8c5830099c43b1e3568341673e7, type: 3}
   sleepCountdown: {fileID: 114490195553030746}
-  rigid: {fileID: 50720825772419498}
-  mainCollider: {fileID: 60667855206617240}
   theSource: {fileID: 82483645646133820}
 --- !u!114 &114490195553030746
 MonoBehaviour:

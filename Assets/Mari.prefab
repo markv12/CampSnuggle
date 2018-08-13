@@ -258,14 +258,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3299a1114022ac94caf2fbbad9cbf33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  rigid: {fileID: 50976310681480196}
+  mainCollider: {fileID: 60761683003380232}
   theRender: {fileID: 212920067772388022}
   sleepingSprite: {fileID: 21300000, guid: d8c400fa31fcc5541b953d7403ecb664, type: 3}
   hitSprite: {fileID: 21300000, guid: b4d92479eccc2434a8aa65f4108cfc7e, type: 3}
   restedSprite: {fileID: 21300000, guid: c3b554b3b6917814a822939d40e87d9d, type: 3}
-  rigid: {fileID: 50976310681480196}
-  mainCollider: {fileID: 60761683003380232}
+  coldSprite: {fileID: 0}
+  sleepCountdown: {fileID: 0}
   theSource: {fileID: 82545684725753506}
-  gruntClips: {fileID: 11400000, guid: 59e5f966f8455164fbd9f0ab18563c09, type: 2}
 --- !u!212 &212920067772388022
 SpriteRenderer:
   m_ObjectHideFlags: 1

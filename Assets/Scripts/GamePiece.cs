@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GamePiece : MonoBehaviour {
-    private Transform t;
-    public Transform center;
+public class GamePiece : DragablePiece {
     public SpriteRenderer theRender;
     public Sprite sleepingSprite;
     public Sprite hitSprite;
     public Sprite restedSprite;
     public Sprite coldSprite;
     public Image sleepCountdown;
-    public Rigidbody2D rigid;
-    public PolygonCollider2D mainCollider;
     public AudioSource theSource;
 
     private float timeInWarmth = 0f;
@@ -183,16 +179,6 @@ public class GamePiece : MonoBehaviour {
                 moveOutRoutine = StartCoroutine(MovePieceOut());
             }
         }
-    }
-
-    private void OnMouseEnter()
-    {
-        PieceMouseManager.instance.SetCurrentPiece(this);
-    }
-
-    private void OnMouseExit()
-    {
-        PieceMouseManager.instance.SetCurrentPiece(null);
     }
 
     private const float LOWER_HIT_LIMIT = 5.5f;

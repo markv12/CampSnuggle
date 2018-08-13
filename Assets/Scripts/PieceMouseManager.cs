@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using System.Collections;
 
 public class PieceMouseManager : MonoBehaviour {
@@ -18,7 +17,7 @@ public class PieceMouseManager : MonoBehaviour {
 
     private List<GamePiece> coldPeople = new List<GamePiece>();
 
-    private GamePiece currentPiece;
+    private DragablePiece currentPiece;
     private bool piecePickedUp = false;
     private Vector3 pickUpOffset;
 
@@ -100,7 +99,7 @@ public class PieceMouseManager : MonoBehaviour {
         coldPeople.Remove(piece);
     }
 
-    public void SetCurrentPiece(GamePiece piece)
+    public void SetCurrentPiece(DragablePiece piece)
     {
         if (!piecePickedUp)
         {
