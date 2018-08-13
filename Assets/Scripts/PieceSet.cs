@@ -2,5 +2,5 @@
 
 public class PieceSet : ScriptableObject {
     public Ossan[] ossan;
-    public Wood wood;
+    public Wood[] woods;
 }

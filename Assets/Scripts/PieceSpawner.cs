@@ -7,12 +7,12 @@ public class PieceSpawner : MonoBehaviour {
     public AudioSource mainGameAudio;
 
     private Ossan[] allOssan;
-    private Wood theWood;
+    private Wood[] theWoods;
 
     void Awake()
     {
         allOssan = set.ossan;
-        theWood = set.wood;
+        theWoods = set.woods;
         SortInPlaceRandom(spawnOrder);
     }
 
@@ -36,7 +36,7 @@ public class PieceSpawner : MonoBehaviour {
             ossanSinceLastWood++;
             if (ossanSinceLastWood >= 4)
             {
-                SpawnPiece(theWood);
+                SpawnPiece(theWoods[Random.Range(0, theWoods.Length)]);
                 ossanSinceLastWood = 0;
             }
             yield return new WaitForSeconds(Random.Range(3f, 5f));

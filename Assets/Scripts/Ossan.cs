@@ -138,7 +138,7 @@ public class Ossan : DragablePiece {
     }
 
     private float timeSinceLastShiver = 0;
-    private const float SHIVER_INTERVAL = 4;
+    private const float SHIVER_INTERVAL = 3;
     private void Update()
     {
         if (!Rested)
