@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HudManager : MonoBehaviour {
 
     public TMP_Text scoreText;
     public TMP_Text comboText;
     public TMP_Text coldOssanText;
+    public TMP_Text coldOssanWarning;
+    public RawImage warningBlackout;
     public RectTransform comboTimer;
 
     public static HudManager instance;
@@ -66,8 +69,11 @@ public class HudManager : MonoBehaviour {
         coldOssanText.text = "Cold Ossan: " + coldOssanCount + "/" + coldOssanLimit;
         if (coldOssanCount > prevOssanCount)
         {
-            StartCoroutine(FlashText(coldOssanText, Color.white, COLD_COLOR));
+            StartCoroutine(FlashText(coldOssanText, Color.white, Color.red));
         }
+        bool overLimit = coldOssanCount >= coldOssanLimit;
+        coldOssanWarning.enabled = overLimit;
+        warningBlackout.enabled = overLimit;
         prevOssanCount = coldOssanCount;
     }
 

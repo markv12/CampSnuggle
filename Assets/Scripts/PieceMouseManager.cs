@@ -67,8 +67,8 @@ public class PieceMouseManager : MonoBehaviour {
         }
         if (coldPeople.Count >= COLD_PERSON_LIMIT)
         {
-            EndGame();
-            coldPeople.Clear();
+            //EndGame();
+            //coldPeople.Clear();
         }
     }
 

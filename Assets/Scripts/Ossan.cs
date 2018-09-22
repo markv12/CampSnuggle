@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Ossan : DragablePiece {
     public SpriteRenderer theRender;
+    public SpriteRenderer maskHole;
     public Sprite sleepingSprite;
     public Sprite hitSprite;
     public Sprite restedSprite;
@@ -78,6 +79,7 @@ public class Ossan : DragablePiece {
         set
         {
             withinFire = value;
+            maskHole.enabled = !withinFire;
             if (getHitRoutine == null)
             {
                 theRender.sprite = withinFire ? sleepingSprite : coldSprite;
