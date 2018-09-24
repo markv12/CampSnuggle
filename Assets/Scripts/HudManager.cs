@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -8,8 +7,8 @@ public class HudManager : MonoBehaviour {
 
     public TMP_Text scoreText;
     public TMP_Text comboText;
-    public TMP_Text coldOssanText;
     public TMP_Text coldOssanWarning;
+    public TMP_Text coldOssanTimer;
     public RawImage warningBlackout;
     public RectTransform comboTimer;
 
@@ -63,18 +62,28 @@ public class HudManager : MonoBehaviour {
     }
 
     public static readonly Color COLD_COLOR = new Color(0.4f, 1f, 1f);
-    private int prevOssanCount = 0;
     public void SetColdOssanLevel(int coldOssanCount, int coldOssanLimit)
     {
-        coldOssanText.text = "Cold Ossan: " + coldOssanCount + "/" + coldOssanLimit;
-        if (coldOssanCount > prevOssanCount)
-        {
-            StartCoroutine(FlashText(coldOssanText, Color.white, Color.red));
-        }
         bool overLimit = coldOssanCount >= coldOssanLimit;
+        if (overLimit)
+        {
+            coldOssanWarning.text = "Too Many Cold Ossan! " + coldOssanCount + "/" + coldOssanLimit;
+        }
         coldOssanWarning.enabled = overLimit;
-        warningBlackout.enabled = overLimit;
-        prevOssanCount = coldOssanCount;
+        FadeWarningBlackout(overLimit);
+    }
+
+    public void SetColdTimeRemaining(int time)
+    {
+        if (time == -1)
+        {
+            coldOssanTimer.enabled = false;
+        }
+        else
+        {
+            coldOssanTimer.text = time.ToString();
+            coldOssanTimer.enabled = true;
+        }
     }
 
     void Awake () {
@@ -126,5 +135,45 @@ public class HudManager : MonoBehaviour {
             yield return null;
         }
         text.color = normalColor;
+    }
+
+    public void FadeWarningBlackout(bool fadeIn)
+    {
+        this.EnsureCoroutineStopped(ref warningBlackoutRoutine);
+        warningBlackoutRoutine = StartCoroutine(_FadeWarningBlackout(fadeIn));
+    }
+    private bool blackoutVisible = false;
+    private Coroutine warningBlackoutRoutine = null;
+    private IEnumerator _FadeWarningBlackout(bool fadeIn)
+    {
+        if ((fadeIn && !blackoutVisible) || (!fadeIn && blackoutVisible))
+        {
+            if (fadeIn)
+            {
+                warningBlackout.enabled = true;
+            }
+
+            Color startColor = warningBlackout.color;
+            Color endColor = fadeIn ? new Color(0, 0, 0, 0.7f) : new Color(0, 0, 0, 0f);
+
+            float elapsedTime = 0;
+            float progress = 0;
+            while (progress <= 1)
+            {
+                progress = elapsedTime / POP_TIME;
+                elapsedTime += Time.deltaTime;
+                Color currentColor = Color.Lerp(startColor, endColor, progress);
+                warningBlackout.color = currentColor;
+                yield return null;
+            }
+            warningBlackout.color = endColor;
+
+            if (!fadeIn)
+            {
+                warningBlackout.enabled = false;
+            }
+            blackoutVisible = fadeIn;
+        }
+        warningBlackoutRoutine = null;
     }
 }

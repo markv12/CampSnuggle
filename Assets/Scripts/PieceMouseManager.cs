@@ -57,7 +57,7 @@ public class PieceMouseManager : MonoBehaviour {
         return v3;
     }
 
-    private const int COLD_PERSON_LIMIT = 10;
+    private const int COLD_PERSON_LIMIT = 8;
     public void RegisterColdPerson(Ossan ossan)
     {
         if (!coldPeople.Contains(ossan))
@@ -67,9 +67,27 @@ public class PieceMouseManager : MonoBehaviour {
         }
         if (coldPeople.Count >= COLD_PERSON_LIMIT)
         {
-            //EndGame();
-            //coldPeople.Clear();
+            if(coldTimeRemainingRoutine == null)
+            {
+                coldTimeRemainingRoutine = StartCoroutine(OverColdLimitCountdown());
+            }
         }
+    }
+
+    private Coroutine coldTimeRemainingRoutine = null; 
+    private const int COLD_TIME_LIMIT = 10;
+    private IEnumerator OverColdLimitCountdown()
+    {
+        for (int i = 0; i < COLD_TIME_LIMIT; i++)
+        {
+            HudManager.instance.SetColdTimeRemaining(10 - i);
+            yield return new WaitForSecondsRealtime(1);
+        }
+
+        EndGame();
+        coldPeople.Clear();
+        HudManager.instance.SetColdTimeRemaining(-1);
+        coldTimeRemainingRoutine = null;
     }
 
     private void EndGame()
@@ -99,6 +117,12 @@ public class PieceMouseManager : MonoBehaviour {
     {
         coldPeople.Remove(ossan);
         HudManager.instance.SetColdOssanLevel(coldPeople.Count, COLD_PERSON_LIMIT);
+
+        if (coldPeople.Count < COLD_PERSON_LIMIT)
+        {
+            this.EnsureCoroutineStopped(ref coldTimeRemainingRoutine);
+            HudManager.instance.SetColdTimeRemaining(-1);
+        }
     }
 
     public void SetCurrentPiece(DragablePiece piece)
