@@ -170,7 +170,7 @@ public class Ossan : DragablePiece {
                 if(moveInRoutine == null)
                 {
                     Vector3 pos = center.position;
-                    if(Mathf.Abs(pos.x) > 18f || Mathf.Abs(pos.y) > 10f)
+                    if(Mathf.Abs(pos.x) > 9.5f || Mathf.Abs(pos.y) > 17f)
                     {
                         rigid.AddForce(-pos.normalized * 50);
                     }
