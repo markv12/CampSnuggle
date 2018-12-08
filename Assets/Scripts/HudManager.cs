@@ -146,34 +146,31 @@ public class HudManager : MonoBehaviour {
     private Coroutine warningBlackoutRoutine = null;
     private IEnumerator _FadeWarningBlackout(bool fadeIn)
     {
-        if ((fadeIn && !blackoutVisible) || (!fadeIn && blackoutVisible))
+        if (fadeIn)
         {
-            if (fadeIn)
-            {
-                warningBlackout.enabled = true;
-            }
-
-            Color startColor = warningBlackout.color;
-            Color endColor = fadeIn ? new Color(0, 0, 0, 0.7f) : new Color(0, 0, 0, 0f);
-
-            float elapsedTime = 0;
-            float progress = 0;
-            while (progress <= 1)
-            {
-                progress = elapsedTime / POP_TIME;
-                elapsedTime += Time.deltaTime;
-                Color currentColor = Color.Lerp(startColor, endColor, progress);
-                warningBlackout.color = currentColor;
-                yield return null;
-            }
-            warningBlackout.color = endColor;
-
-            if (!fadeIn)
-            {
-                warningBlackout.enabled = false;
-            }
-            blackoutVisible = fadeIn;
+            warningBlackout.enabled = true;
         }
+
+        Color startColor = warningBlackout.color;
+        Color endColor = fadeIn ? new Color(0, 0, 0, 0.7f) : new Color(0, 0, 0, 0f);
+
+        float elapsedTime = 0;
+        float progress = 0;
+        while (progress <= 1)
+        {
+            progress = elapsedTime / POP_TIME;
+            elapsedTime += Time.deltaTime;
+            Color currentColor = Color.Lerp(startColor, endColor, progress);
+            warningBlackout.color = currentColor;
+            yield return null;
+        }
+        warningBlackout.color = endColor;
+
+        if (!fadeIn)
+        {
+            warningBlackout.enabled = false;
+        }
+        blackoutVisible = fadeIn;
         warningBlackoutRoutine = null;
     }
 }
